@@ -1,0 +1,718 @@
+/* CODE ATTRIBUTION */
+/* TITLE: TastyBites Website */
+/* AUTHOR: Rochelle Moodley */
+/* DATE: 23 July 2024 to 1 September 2024 */
+/* VERSION: N/A */
+/* AVAILABLE: Live Lecture */
+
+
+
+.cart-container {
+    margin-bottom: 20px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.item-description {
+    font-size: 18px;
+    color: #333;
+}
+
+.remove-button {
+    background-color: #f05454;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.remove-button:hover {
+    background-color: #d64545;
+}
+
+/* Summary Container */
+.summary-container {
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+    margin-top: 15px;
+    font-size: 18px;
+    color: #333;
+}
+
+.summary-text {
+    margin: 5px 0;
+}
+
+#discountAmount {
+    color: #f05454;
+}
+
+/* Checkout Button */
+.checkout-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+.checkout-button:hover {
+    background-color: #45a049;
+}
+
+/* Global Styles */
+body {
+    font-family: 'Source Sans Pro', Arial, sans-serif;
+    /* Similar to Sterling */
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
+    /* Prevent horizontal scroll */
+}
+
+/* Headings Style */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Didot', serif;
+    color: #81D8D0;
+}
+
+h1 {
+    background: linear-gradient(to right, #f0286e, #81D8D0);
+    /* Gradient colors */
+    -webkit-background-clip: text;
+    /* Clip the background to the text */
+    -webkit-text-fill-color: transparent;
+    /* Fill the text with the background */
+    background-clip: text;
+    /* Ensure background is clipped */
+    color: transparent;
+    /* Set color to transparent for older browsers */
+    text-align: center;
+    /* Center text */
+    margin: 0;
+    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.057);
+    /* Adjust the shadow properties as needed */
+    font-size: 3em;
+    /* Set font size */
+}
+
+.section-video {
+    width: 50%;
+    /* Set the width to 70% of the parent container */
+    height: auto;
+    /* Automatically adjust height to maintain aspect ratio */
+    max-width: 800px;
+    /* Optional: set a max-width to prevent it from getting too large */
+    margin: 20px auto;
+    /* Center the video horizontally and add vertical spacing */
+    display: flex;
+    /* Use flexbox to center content */
+    justify-content: center;
+    /* Center child elements (video) */
+}
+
+/* Additional styles for the video element if needed */
+.section-video iframe {
+    width: 100%;
+    /* Make the iframe take the full width of the section */
+    border-radius: 8px;
+    /* Optional: rounded corners for the video */
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    /* Optional: add a shadow for depth */
+}
+
+/* Navbar Styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: linear-gradient(to right, #f0286e, #81D8D0);
+    /* Gradient colors */
+    display: flex;
+    align-items: center;
+    /* Center vertically */
+    padding: 10px 20px;
+    /* Adjust padding for more space */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.navbar-logo {
+    margin-right: auto;
+    /* Push the logo to the left */
+}
+
+.navbar-logo img {
+    height: 60px;
+    /* Adjust height to fit the navbar */
+    width: auto;
+    border-radius: 50%;
+}
+
+.navbar-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    flex: 1;
+    /* Allow links to take up remaining space */
+    justify-content: center;
+    /* Center the links */
+}
+
+.navbar-links li {
+    margin: 0 15px;
+}
+
+.navbar-links a {
+    color: white;
+    /* Default color */
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+    /* Added transform and text-shadow transitions */
+    position: relative;
+    /* Needed for positioning the pseudo-element */
+}
+
+/* Dramatic hover effect */
+.navbar-links a:hover {
+    color: #81D8D0;
+    /* Change to a contrasting color on hover */
+    transform: scale(1.1);
+    /* Slightly enlarge the link */
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    /* Add shadow for depth */
+}
+
+/* Active link styling */
+.navbar-links a.active {
+    color: #81D8D0;
+    /* Active link color */
+}
+
+/* Underline effect using pseudo-element */
+.navbar-links a::after {
+    content: '';
+    display: block;
+    width: 100%;
+    /* Full width of the link */
+    height: 3px;
+    /* Thickness of the underline */
+    background-color: #81D8D0;
+    /* Color of the underline */
+    position: absolute;
+    /* Position relative to the link */
+    bottom: -5px;
+    /* Position it below the text */
+    left: 0;
+    transform: scaleX(0);
+    /* Initially hidden */
+    transition: transform 0.3s ease;
+    /* Smooth transition */
+}
+
+/* Show underline on hover and for active links */
+.navbar-links a:hover::after,
+.navbar-links a.active::after {
+    transform: scaleX(1);
+    /* Show underline */
+}
+
+/* Video Background */
+.video-background {
+    position: relative;
+    height: 450px;
+    width: 100%;
+    overflow: hidden;
+    margin-top: 80px;
+    /* Added margin to offset the fixed navbar */
+}
+
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+}
+
+/* Content Styling */
+.content {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Video Container */
+.video-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.video-container iframe {
+    width: 48%;
+    height: 250px;
+    border-radius: 8px;
+}
+
+/* Footer */
+footer {
+    background-color: #81D8D0;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* Product cards */
+.product-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.product-card:hover img {
+    transform: scale(1.1);
+    /* Zooms in the image slightly */
+}
+
+.product-card h3 {
+    font-size: 20px;
+    color: #333;
+    margin: 15px 0;
+}
+
+.product-card p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.product-card strong {
+    font-size: 18px;
+    color: #333;
+}
+
+.product-card button {
+    background-color: #f0286e;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.product-card button:hover {
+    background-color: #81D8D0;
+}
+
+/* Product Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* Auto-adjust column count */
+    gap: 20px;
+    /* Space between items */
+    margin: 20px auto;
+    max-width: 1200px;
+    /* Adjust depending on the layout */
+    padding: 10px;
+}
+
+/* Product Card Hover Effect */
+.product-card:hover {
+    box-shadow: 0px 0px 20px rgba(231, 216, 216, 0.2);
+    background-color: #7fd1cf;
+    /* Light blue background on hover */
+    transform: scale(1.05);
+    /* Slight zoom-in effect */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Cursor Effect */
+.cursor {
+    position: fixed;
+    width: 30px;
+    /* Adjust size as needed */
+    height: 30px;
+    /* Adjust size as needed */
+    background-color: rgba(129, 216, 208, 0.8);
+    /* Color of the circle */
+    border-radius: 50%;
+    /* Make it circular */
+    pointer-events: none;
+    /* Prevent it from interfering with other elements */
+    transform: translate(-50%, -50%);
+    /* Center it on the cursor */
+    transition: transform 0.1s ease;
+    /* Smooth transition */
+    z-index: 999;
+
+    /* CODE ATTRIBUTION */
+    /* TITLE: Creating a Custom Cursor for Your Website */
+    /* AUTHOR: Bridget Amana */
+    /* DATE: Accessed on 5 September 2024 */
+    /* VERSION: N/A */
+    /* AVAILABLE: https://dev.to/bridget_amana/creating-a-custom-cursor-for-your-website-2jpo */
+
+}
+
+.cursor.hidden {
+    display: none;
+    /* Hide cursor when necessary */
+}
+
+/* Contact Image */
+.contact-img {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 2em;
+}
+
+/* Contact Details */
+.contact-details h3 {
+    color: #f0286e;
+    font-size: 1.5rem;
+}
+
+.contact-details p {
+    font-size: 1rem;
+    margin: 1em 0;
+}
+
+/* Contact Form */
+.contact-form {
+    margin-top: 3em;
+    text-align: left;
+    max-width: 600px;
+    margin: 3em auto;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 1.5em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.contact-form button {
+    background-color: #f0286e;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: #81D8D0;
+}
+
+/* Map */
+.map-iframe {
+    display: block;
+    /* Ensures the iframe behaves like a block element */
+    margin: 2em auto;
+    /* Centers the map horizontally */
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    /* Ensures responsiveness */
+    width: 80%;
+    /* Adjusts the size of the map, you can tweak this value */
+    height: 450px;
+    /* Keeps height fixed */
+}
+
+/* Change background color of .content on hover */
+.content:hover {
+    background-color: rgb(217, 246, 255);
+    transition: background-color 0.3s ease;
+    /* Adds smooth transition effect */
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    /* Set the width to 50% of the container */
+    height: auto;
+    /* Maintain aspect ratio */
+}
+
+
+/* For mobile navigation toggle */
+.menu-toggle {
+    display: none;
+    /* Hidden by default on larger screens */
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+.navbar-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex: 1;
+    justify-content: center;
+}
+
+/* Media query for screens 960px and smaller */
+
+/* CODE ATTRIBUTION */
+/* TITLE: How to create a Responsive Navigation Bar (for beginners) */
+/* AUTHOR: Coding2GO on YouTube */
+/* DATE: Accessed on 5 September 2024 */
+/* VERSION: Video posted on 4 June 2023 */
+/* AVAILABLE: https://www.youtube.com/watch?v=U8smiWQ8Seg&ab_channel=Coding2GO */
+
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+    .navbar-links {
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: nowrap;
+    }
+
+    .navbar-links li {
+        margin: 10px 0;
+    }
+
+    .video-container iframe {
+        width: 100%;
+    }
+
+    .cupcakes {
+        font-size: 2.5em;
+        /* Smaller font size for mobile */
+    }
+
+    .of-hope {
+        font-size: 2em;
+        /* Smaller font size for mobile */
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-links a {
+        font-size: 16px;
+        /* Smaller font size for better fit on smaller screens */
+        padding: 5px 10px;
+    }
+
+    .navbar {
+        padding: 10px 10px;
+        /* Reducing navbar padding for smaller screens */
+    }
+}
+
+
+@media (max-width: 960px) {
+    .navbar {
+        padding: 10px;
+        /* Reduce padding on smaller screens */
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .navbar-links {
+        display: none;
+        /* Hide links by default on mobile */
+        position: absolute;
+        top: 60px;
+        /* Below the fixed navbar */
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background-color: #f0286e;
+        z-index: 100;
+        padding: 20px 0;
+    }
+
+    .navbar-links li {
+        margin: 10px 0;
+    }
+
+    .navbar-links a {
+        color: white;
+        font-size: 18px;
+        padding: 10px;
+        display: block;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* Show hamburger icon */
+    .menu-toggle {
+        display: block;
+        margin-right: 20px;
+    }
+
+    /* Show navigation when active */
+    .navbar-links.active {
+        display: flex;
+    }
+}
+
+/* From Uiverse.io by zjssun */
+.button {
+    position: relative;
+    padding: 10px 22px;
+    border-radius: 6px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    background-color: #7d2ae8;
+    transition: all 0.2s ease;
+}
+
+.button:active {
+    transform: scale(0.96);
+}
+
+.button:before,
+.button:after {
+    position: absolute;
+    content: "";
+    width: 150%;
+    left: 50%;
+    height: 100%;
+    transform: translateX(-50%);
+    z-index: -1000;
+    background-repeat: no-repeat;
+}
+
+.button:hover:before {
+    top: -70%;
+    background-image: radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+        radial-gradient(circle, transparent 20%, #7d2ae8 20%, transparent 30%),
+        radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+        radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+        radial-gradient(circle, transparent 10%, #7d2ae8 15%, transparent 20%),
+        radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+        radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+        radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+        radial-gradient(circle, #7d2ae8 20%, transparent 20%);
+    background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%,
+        10% 10%, 18% 18%;
+    background-position: 50% 120%;
+    animation: greentopBubbles 0.6s ease;
+}
+
+@keyframes greentopBubbles {
+    0% {
+        background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%,
+            40% 90%, 55% 90%, 70% 90%;
+    }
+
+    50% {
+        background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
+            50% 50%, 65% 20%, 90% 30%;
+    }
+
+    100% {
+        background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
+            50% 40%, 65% 10%, 90% 20%;
+        background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+    }
+}
+
+.button:hover::after {
+    bottom: -70%;
+    background-image: radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+        radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+        radial-gradient(circle, transparent 10%, #7d2ae8 15%, transparent 20%),
+        radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+        radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+        radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+        radial-gradient(circle, #7d2ae8 20%, transparent 20%);
+    background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 20% 20%, 18% 18%;
+    background-position: 50% 0%;
+    animation: greenbottomBubbles 0.6s ease;
+}
+
+@keyframes greenbottomBubbles {
+    0% {
+        background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%,
+            70% -10%, 70% 0%;
+    }
+
+    50% {
+        background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%,
+            105% 0%;
+    }
+
+    100% {
+        background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%,
+            110% 10%;
+        background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+    }
+}

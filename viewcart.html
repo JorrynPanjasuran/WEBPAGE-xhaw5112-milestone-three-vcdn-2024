@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Cart</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+
+    <body>
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="navbar-logo">
+                <img src="_images/logo.png" alt="Empowering the Nation Logo" class="logo">
+            </div>
+            <ul class="navbar-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="six_week_courses.html">Six Week Courses</a></li>
+                <li><a href="six_month_courses.html">Six Month Courses</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="addtocart.html">Add to Cart</a></li>
+                <li><a href="viewcart.html" class="active">View Cart</a></li>
+            </ul>
+        </nav>
+
+        <!-- Video Background -->
+        <div class="video-background">
+            <video autoplay muted loop playsinline class="background-video" preload="auto">
+                <source src="_video/videoe.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-overlay">
+                <header>
+                    <h1>Empowering the Nation</h1>
+                </header>
+            </div>
+        </div>
+
+        <div class="container">
+            <h2 class="page-title">View Cart</h2>
+
+            <!-- Cart Content -->
+            <div id="cartContainer" class="cart-container">
+                <!-- Cart items will be dynamically generated here -->
+            </div>
+
+            <!-- Total Summary -->
+            <div class="summary-container">
+                <p class="summary-text">Total (before discount): R<span id="totalWithoutDiscount">0.00</span></p>
+                <p id="discountAmount" class="summary-text" style="display: none;">Discount: -R<span
+                        id="discountValue">0.00</span></p>
+                <p class="summary-text">Total (after discount): R<span id="totalWithDiscount">0.00</span></p>
+            </div>
+
+            <!-- Checkout Button -->
+            <button onclick="checkout()" class="checkout-button">Proceed to Checkout</button>
+        </div>
+
+        <script>
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+            function calculateTotal() {
+                let totalWithoutDiscount = cartItems.reduce((total, item) => total + item.fees, 0);
+                let discountRate = 0;
+
+                if (cartItems.length === 2) discountRate = 0.05;
+                else if (cartItems.length === 3) discountRate = 0.10;
+                else if (cartItems.length > 3) discountRate = 0.15;
+
+                let discountAmount = totalWithoutDiscount * discountRate;
+                let totalWithDiscount = totalWithoutDiscount - discountAmount;
+
+                return { totalWithoutDiscount, discountAmount, totalWithDiscount };
+            }
+
+            function displayCart() {
+                const cartContainer = document.getElementById("cartContainer");
+                cartContainer.innerHTML = '';
+
+                cartItems.forEach((item, index) => {
+                    let cartItem = document.createElement("div");
+                    cartItem.className = "cart-item";
+                    cartItem.innerHTML = `
+                    <p class="item-description">${item.title} - R${item.fees.toFixed(2)}</p>
+                    <button onclick="removeItem(${index})" class="remove-button">Remove</button>
+                `;
+                    cartContainer.appendChild(cartItem);
+                });
+
+                const { totalWithoutDiscount, discountAmount, totalWithDiscount } = calculateTotal();
+                document.getElementById("totalWithoutDiscount").textContent = totalWithoutDiscount.toFixed(2);
+                document.getElementById("totalWithDiscount").textContent = totalWithDiscount.toFixed(2);
+
+                const discountElement = document.getElementById("discountAmount");
+                if (discountAmount > 0) {
+                    discountElement.style.display = "block";
+                    document.getElementById("discountValue").textContent = discountAmount.toFixed(2);
+                } else {
+                    discountElement.style.display = "none";
+                }
+            }
+
+            function removeItem(index) {
+                cartItems.splice(index, 1);
+                localStorage.setItem("cartItems", JSON.stringify(cartItems));
+                displayCart();
+            }
+
+            function checkout() {
+                const { totalWithDiscount } = calculateTotal();
+                alert(`Thank you for your purchase! Your total order of R${totalWithDiscount.toFixed(2)} will be processed shortly.`);
+            }
+
+            document.addEventListener("DOMContentLoaded", displayCart);
+        </script>
+
+    </body>
+
+</html>
