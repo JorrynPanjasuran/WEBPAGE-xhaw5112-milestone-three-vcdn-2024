@@ -5,7 +5,30 @@
 /* VERSION: N/A */
 /* AVAILABLE: Live Lecture */
 
-/* Marquee Animation */
+
+
+
+/* Progress Bar at the top */
+.progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: #333;
+    z-index: 1000;
+    /* Ensure it’s above other elements */
+    margin: 0;
+    padding: 0;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background-color: #4caf50;
+}
+
+
 /* Marquee Animation */
 .marquee {
     overflow: hidden;
@@ -78,9 +101,7 @@
     margin-bottom: 10px;
 }
 
-/*end*/
-
-.review-card button:hover {
+/end/ .review-card button:hover {
     background-color: #81D8D0;
 }
 
@@ -229,30 +250,37 @@ h1 {
     /* Optional: add a shadow for depth */
 }
 
-/* Navbar Styles */
 .navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
+    position: absolute;
+    /* No longer fixed to the viewport */
+    top: 20px;
+    /* Position it slightly below the top */
+    left: 50%;
+    transform: translateX(-50%);
+    /* Center it horizontally */
+    width: 90%;
+    /* Make it slightly narrower than full width */
+    max-width: 1200px;
+    /* Optional max width for larger screens */
     background: linear-gradient(to right, #f0286e, #81D8D0);
-    /* Gradient colors */
+    /* Gradient background */
     display: flex;
     align-items: center;
-    /* Center vertically */
-    padding: 10px 20px;
-    /* Adjust padding for more space */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px 30px;
+    /* Add more padding for a rounded look */
+    border-radius: 20px;
+    /* Rounded corners for floating effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Slightly stronger shadow for floating effect */
     z-index: 10;
 }
 
 .navbar-logo {
     margin-right: auto;
-    /* Push the logo to the left */
 }
 
 .navbar-logo img {
     height: 60px;
-    /* Adjust height to fit the navbar */
     width: auto;
     border-radius: 50%;
 }
@@ -263,9 +291,7 @@ h1 {
     margin: 0;
     padding: 0;
     flex: 1;
-    /* Allow links to take up remaining space */
     justify-content: center;
-    /* Center the links */
 }
 
 .navbar-links li {
@@ -274,57 +300,38 @@ h1 {
 
 .navbar-links a {
     color: white;
-    /* Default color */
     text-decoration: none;
     font-size: 18px;
     transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
-    /* Added transform and text-shadow transitions */
     position: relative;
-    /* Needed for positioning the pseudo-element */
 }
 
-/* Dramatic hover effect */
 .navbar-links a:hover {
     color: #81D8D0;
-    /* Change to a contrasting color on hover */
     transform: scale(1.1);
-    /* Slightly enlarge the link */
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-    /* Add shadow for depth */
 }
 
-/* Active link styling */
 .navbar-links a.active {
     color: #81D8D0;
-    /* Active link color */
 }
 
-/* Underline effect using pseudo-element */
 .navbar-links a::after {
     content: '';
     display: block;
     width: 100%;
-    /* Full width of the link */
     height: 3px;
-    /* Thickness of the underline */
     background-color: #81D8D0;
-    /* Color of the underline */
     position: absolute;
-    /* Position relative to the link */
     bottom: -5px;
-    /* Position it below the text */
     left: 0;
     transform: scaleX(0);
-    /* Initially hidden */
     transition: transform 0.3s ease;
-    /* Smooth transition */
 }
 
-/* Show underline on hover and for active links */
 .navbar-links a:hover::after,
 .navbar-links a.active::after {
     transform: scaleX(1);
-    /* Show underline */
 }
 
 /* Video Background */
@@ -802,5 +809,48 @@ img {
         background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%,
             110% 10%;
         background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+
+        /* Video Background Styling */
+        .video-background {
+            position: relative;
+            height: 450px;
+            width: 100%;
+            overflow: hidden;
+            margin: 0;
+            /* Remove extra margin to align directly under the progress bar */
+        }
+
+        .background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .navbar {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 0;
+            /* Places navbar behind the video */
+            background: rgba(255, 255, 255, 0.6);
+            /* Optional translucent background for testing */
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            z-index: 10;
+            /* Ensure it’s above the video */
+        }
+
     }
+
 }

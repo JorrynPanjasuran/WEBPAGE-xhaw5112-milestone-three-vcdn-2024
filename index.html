@@ -7,15 +7,8 @@
     <title>Empowering the Nation | Home</title>
     <link rel="stylesheet" href="styles.css">
     <script type="module" src="path/to/your/OrbitingCircles.js"></script>
-    <script src="script.js" defer></script> <!-- Use defer to load after HTML -->
+    <script src="script.js" defer></script>
 </head>
-
-<!-- CODE ATTRIBUTION -->
-<!-- TITLE: (WEBSITE TITLE: Empowering the Nation) -->
-<!-- AUTHOR: (NAME OF AUTHOR: Code Nexus) -->
-<!-- DATE: (DATE YOU ACCESSED THE SITE: 18/09/2024) -->
-<!-- VERSION: (CODE VERSION: Version 1) -->
-<!-- AVAILABLE: (SITE LINK: N/A) -->
 
 <body>
     <!-- Scroll Progress Bar -->
@@ -23,12 +16,28 @@
         <div class="progress-bar" id="progressBar"></div>
     </div>
 
-    <!-- Video Background -->
+    <!-- Video Background Section with Navbar Behind the Video -->
     <div class="video-background">
+        <!-- Navbar (Positioned behind the video) -->
+        <nav class="navbar">
+            <ul class="navbar-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="six_week_courses.html">Six Week Courses</a></li>
+                <li><a href="six_month_courses.html">Six Month Courses</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="addtocart.html">Add to Cart</a></li>
+                <li><a href="viewcart.html">View Cart</a></li>
+            </ul>
+        </nav>
+
+        <!-- Background Video -->
         <video autoplay muted loop playsinline class="background-video" preload="auto">
             <source src="_video/videoe.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
+
+        <!-- Overlay Text -->
         <div class="video-overlay">
             <header>
                 <h1 class="orbiting-title">Empowering the Nation</h1>
@@ -36,23 +45,7 @@
         </div>
     </div>
 
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="navbar-logo">
-            <img src="_images/logo.png" alt="Empowering the Nation Logo" class="logo">
-        </div>
-        <ul class="navbar-links">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="six_week_courses.html">Six Week Courses</a></li>
-            <li><a href="six_month_courses.html">Six Month Courses</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="addtocart.html">Add to Cart</a></li>
-            <li><a href="viewcart.html">View Cart</a></li>
-        </ul>
-    </nav>
-
-    <!-- Content -->
+    <!-- Main Content Below the Video Background -->
     <div class="content">
         <h2>Welcome to Empowering the Nation!</h2>
         <p>Empowering the Nation is a skills training initiative founded by <strong>Precious Radebe</strong>. We provide
@@ -92,6 +85,9 @@
             <li>More than three courses – 15% discount</li>
         </ul>
     </div>
+
+
+
 
     <div class="content">
         <h3>Watch Our Story</h3>
@@ -140,6 +136,7 @@
         <p>&copy; 2024 Empowering the Nation. All rights reserved.</p>
         <p>Email: info@empoweringthenation.co.za | Phone: +27-123-456-7890</p>
     </footer>
+
 </body>
 
 </html>
