@@ -35,4 +35,36 @@ function checkout() {
 }
 
 
+//Home Page comments 
+document.addEventListener("DOMContentLoaded", function () {
+    const marqueeContent = document.querySelector(".marquee-content");
+
+    // Set scroll speed
+    const scrollSpeed = 20; // in seconds
+    marqueeContent.style.animationDuration = `${scrollSpeed}s`;
+
+    // Pause animation on hover
+    marqueeContent.addEventListener("mouseover", () => {
+        marqueeContent.style.animationPlayState = "paused";
+    });
+
+    marqueeContent.addEventListener("mouseout", () => {
+        marqueeContent.style.animationPlayState = "running";
+    });
+});
+// End of Home Page Comments 
+
+
+//Scrolls on top 
+window.onscroll = function () { updateProgressBar() };
+
+function updateProgressBar() {
+    var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    var scrolled = (winScroll / height) * 100;
+    document.getElementById("progressBar").style.width = scrolled + "%";
+}
+
+//Scrolls on bottom
+
 
