@@ -5,44 +5,104 @@
 /* VERSION: N/A */
 /* AVAILABLE: Live Lecture */
 
-/* styles.css */
 
-/* Rainbow Animation Colors */
-:root {
-    --color-1: 0 100% 63%;
-    --color-2: 270 100% 63%;
-    --color-3: 210 100% 63%;
-    --color-4: 195 100% 63%;
-    --color-5: 90 100% 63%;
-}
 
-/* Keyframes for Rainbow Animation */
-@keyframes rainbow {
-    0% {
-        background-position: 0%;
-    }
 
-    100% {
-        background-position: 200%;
-    }
-}
 
-/* Rainbow Button Styles */
-.rainbow-button {
-    background: linear-gradient(90deg, hsl(var(--color-1)), hsl(var(--color-5)), hsl(var(--color-3)), hsl(var(--color-4)), hsl(var(--color-2)));
-    background-size: 200%;
-    animation: rainbow 2s infinite linear;
-    padding: 10px 20px;
-    color: #fff;
+
+
+
+
+
+
+
+
+/* CSS for the sparkling text effect */
+.sparkles-text {
+    position: relative;
+    display: inline-block;
+    font-size: 48px;
     font-weight: bold;
+    color: black;
+    margin-top: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+/* CSS for each individual star sparkle */
+.sparkle {
+    position: absolute;
+    width: 10px; /* Increased size for stars */
+    height: 10px; /* Increased size for stars */
+    background-color: gold; /* Default sparkle color */
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); /* Star shape */
+    animation: sparkle 1s linear infinite;
+}
+
+/* Keyframes for sparkle animation */
+@keyframes sparkle {
+    0% {
+        transform: scale(0.5);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* General Body Styles */
+
+
+/* Button Styles */
+#popcornButton {
+    padding: 15px 30px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #bb00ff; /* Button color */
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition: transform 0.2s ease;
+    outline: none;
+    position: relative;
+    z-index: 1;
+    overflow: hidden; /* Ensure content inside the button doesn't overflow */
+    transition: background-color 0.3s; /* Smooth transition */
 }
 
-.rainbow-button:hover {
-    transform: scale(1.05);
+#popcornButton:hover {
+    background-color: #9900cc; /* Darker shade on hover */
+}
+
+/* Confetti Styles */
+.confetti-spark {
+    position: fixed; /* Keep particles on screen */
+    border-radius: 50%; /* Keep particles circular */
+    pointer-events: none; /* Allow clicks to pass through */
+    z-index: 99999999; /* Ensure particles are on top */
+    will-change: transform, opacity; /* Optimize animations */
 }
 
 

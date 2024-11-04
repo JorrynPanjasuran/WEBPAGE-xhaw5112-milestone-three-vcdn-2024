@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add to Cart</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -46,24 +46,13 @@
     <div class="content">
         <h2 class="page-title">Add to Cart!</h2>
         <div id="courses">
-
-            <!-- Landscaping Course -->
             <div class="product-grid">
+                <!-- Landscaping Course -->
                 <div class="product-card" id="landscaping">
                     <img src="https://images.unsplash.com/photo-1605022936264-d57a9e20942a" alt="Landscaping Course"
                         class="course-image">
                     <h3 class="course-title">Landscaping Course - R1500</h3>
-                    <p class="course-description">
-                        Learn landscape design principles.<br>
-                        Purpose: To provide landscaping services for new and established gardens.<br>
-                        Content:<br>
-                        • Indigenous and exotic plants and trees<br>
-                        • Fixed structures (fountains, statues, benches)<br>
-                        • Balancing plants and trees in a garden<br>
-                        • Aesthetics of plant shapes and colors<br>
-                        • Garden layout
-                    </p>
-                    <button class="button add-to-cart-btn" onclick="addToCart('Landscaping Course', 1500)">Add to
+                    <button class="button add-to-cart-btn" onclick="addToCart(event, 'Landscaping Course', 1500)">Add to
                         Cart</button>
                 </div>
 
@@ -72,115 +61,107 @@
                     <img src="https://images.unsplash.com/photo-1517960413843-0aee8e2b3285" alt="Life Skills Course"
                         class="course-image">
                     <h3 class="course-title">Life Skills Course - R1500</h3>
-                    <p class="course-description">
-                        Develop key life skills for success.<br>
-                        Purpose: To provide skills to navigate basic life necessities.<br>
-                        Content:<br>
-                        • Opening a bank account<br>
-                        • Basic labor law (know your rights)<br>
-                        • Basic reading and writing literacy<br>
-                        • Basic numeric literacy
-                    </p>
-                    <button class="button add-to-cart-btn" onclick="addToCart('Life Skills Course', 1500)">Add to
+                    <button class="button add-to-cart-btn" onclick="addToCart(event, 'Life Skills Course', 1500)">Add to
                         Cart</button>
                 </div>
 
                 <!-- Sewing Course -->
                 <div class="product-card" id="sewing">
-                    <img src="https://images.unsplash.com/photo-1542044801-30d3e45ae49a" alt="Sewing Course"
+                    <img src="https://images.unsplash.com/photo-1606816579516-248a8a3e73f7" alt="Sewing Course"
                         class="course-image">
                     <h3 class="course-title">Sewing Course - R1500</h3>
-                    <p class="course-description">
-                        Learn the basics of sewing.<br>
-                        Purpose: To provide alterations and new garment tailoring services.<br>
-                        Content:<br>
-                        • Types of stitches<br>
-                        • Threading a sewing machine<br>
-                        • Sewing buttons, zips, hems, and seams<br>
-                        • Alterations<br>
-                        • Designing and sewing new garments
-                    </p>
-                    <button class="button add-to-cart-btn" onclick="addToCart('Sewing Course', 1500)">Add to
+                    <button class="button add-to-cart-btn" onclick="addToCart(event, 'Sewing Course', 1500)">Add to
                         Cart</button>
                 </div>
 
                 <!-- First Aid Course -->
                 <div class="product-card" id="first-aid">
-                    <img src="https://plus.unsplash.com/premium_photo-1661779439009-469c7abbbe42" alt="First Aid Course"
+                    <img src="https://images.unsplash.com/photo-1553964186-eeb44e43d4a4" alt="First Aid Course"
                         class="course-image">
-                    <h3 class="course-title">First Aid Course - R1500</h3>
-                    <p class="course-description">
-                        Learn essential first aid skills.<br>
-                        Purpose: To provide first aid awareness and basic life support.<br>
-                        Content:<br>
-                        • Wounds and bleeding<br>
-                        • Burns and fractures<br>
-                        • Emergency scene management<br>
-                        • Cardio-Pulmonary Resuscitation (CPR)<br>
-                        • Respiratory distress (e.g., choking, blocked airway)
-                    </p>
-                    <button class="button add-to-cart-btn" onclick="addToCart('First Aid Course', 1500)">Add to
-                        Cart</button>
-                </div>
-
-                <!-- Child Minding Course -->
-                <div class="product-card" id="child-minding">
-                    <img src="https://plus.unsplash.com/premium_photo-1661727647956-7d7d3e8ed550?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                        alt="Child Minding" class="course-image">
-                    <h3 class="course-title">Child Minding - R750</h3>
-                    <p class="course-description">
-                        An introduction to fundamental childcare techniques.<br>
-                        Purpose: To provide basic child and baby care.<br>
-                        Content:<br>
-                        • Birth to six-month-old baby needs<br>
-                        • Seven-month to one-year-old needs<br>
-                        • Toddler needs<br>
-                        • Educational toys
-                    </p>
-                    <button class="button add-to-cart-btn" onclick="addToCart('Child Minding', 750)">Add to
+                    <h3 class="course-title">First Aid Course - R800</h3>
+                    <button class="button add-to-cart-btn" onclick="addToCart(event, 'First Aid Course', 800)">Add to
                         Cart</button>
                 </div>
 
                 <!-- Cooking Skills Course -->
                 <div class="product-card" id="cooking-skills">
-                    <img src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                        alt="Cooking Skills" class="course-image">
-                    <h3 class="course-title">Cooking Skills - R750</h3>
-                    <p class="course-description">
-                        Discover essential kitchen skills.<br>
-                        Purpose: To prepare and cook nutritious family meals.<br>
-                        Content:<br>
-                        • Nutritional requirements for a healthy body<br>
-                        • Types of protein, carbohydrates, and vegetables<br>
-                        • Planning meals<br>
-                        • Preparation and cooking of meals
-                    </p>
-                    <button class="button add-to-cart-btn" onclick="addToCart('Cooking Skills', 750)">Add to
-                        Cart</button>
+                    <img src="https://images.unsplash.com/photo-1614239820364-43f05223322c" alt="Cooking Skills Course"
+                        class="course-image">
+                    <h3 class="course-title">Cooking Skills Course - R1200</h3>
+                    <button class="button add-to-cart-btn" onclick="addToCart(event, 'Cooking Skills Course', 1200)">Add
+                        to Cart</button>
+                </div>
+
+                <!-- Child Minding Course -->
+                <div class="product-card" id="child-minding">
+                    <img src="https://images.unsplash.com/photo-1625360808221-1d1b64f50a02" alt="Child Minding Course"
+                        class="course-image">
+                    <h3 class="course-title">Child Minding Course - R1400</h3>
+                    <button class="button add-to-cart-btn" onclick="addToCart(event, 'Child Minding Course', 1400)">Add
+                        to Cart</button>
                 </div>
 
                 <!-- Garden Maintenance Course -->
                 <div class="product-card" id="garden-maintenance">
-                    <img src="https://images.unsplash.com/photo-1460533893735-45cea2212645?q=80&w=1856&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                        alt="Garden Maintenance" class="course-image">
-                    <h3 class="course-title">Garden Maintenance - R750</h3>
-                    <p class="course-description">
-                        Essential gardening knowledge.<br>
-                        Purpose: To provide basic knowledge of watering, pruning, and planting in a domestic garden.<br>
-                        Content:<br>
-                        • Water restrictions and the watering requirements of indigenous and exotic plants<br>
-                        • Pruning and propagation of plants<br>
-                        • Planting techniques for different plant types
-                    </p>
-                    <button class="button add-to-cart-btn" onclick="addToCart('Garden Maintenance', 750)">Add to
-                        Cart</button>
+                    <img src="https://images.unsplash.com/photo-1573164570570-3f2ab2bc2b10"
+                        alt="Garden Maintenance Course" class="course-image">
+                    <h3 class="course-title">Garden Maintenance Course - R1300</h3>
+                    <button class="button add-to-cart-btn"
+                        onclick="addToCart(event, 'Garden Maintenance Course', 1300)">Add to Cart</button>
                 </div>
 
+                <!-- Additional courses can be added here -->
             </div>
+        </div>
+    </div>
 
-            <!-- Cart Section -->
-            <div class="cart">
-                <h3 class="cart-title">Your Cart</h3>
-                <div id="cartItems" class="cart-items"></div>
-                <div class="summary">
-                    <p class="summary-text">Total: R<span id="totalAmount">0.00</span></p>
+    <script>
+        // Function to add items to cart and trigger confetti
+        function addToCart(event, courseName, price) {
+            // Logic to add the item to cart (e.g., update cart array, localStorage, etc.)
+            console.log(`${courseName} added to cart for R${price}`);
+
+            // Trigger confetti effect
+            const fireworkCount = 200; // Increase particle count for more coverage
+
+            for (let i = 0; i < fireworkCount; i++) {
+                createConfettiExplosion();
+            }
+        }
+
+        function createConfettiExplosion() {
+            const confettiPiece = document.createElement('div');
+            confettiPiece.classList.add('confetti-spark');
+
+            // Randomize particle size for variety
+            const size = Math.random() * 20 + 10 + 'px'; // Size range adjusted
+            confettiPiece.style.width = size;
+            confettiPiece.style.height = size;
+            confettiPiece.style.backgroundColor = `hsl(${Math.random() * 360}, 90%, 60%)`;
+
+            // Set random position within the viewport
+            const x = Math.random() * window.innerWidth + 'px';
+            const y = Math.random() * window.innerHeight + 'px';
+            confettiPiece.style.position = 'absolute';
+            confettiPiece.style.left = x;
+            confettiPiece.style.top = y;
+
+            // Add the confetti piece to the body
+            document.body.appendChild(confettiPiece);
+
+            // Animation using CSS classes for falling effect
+            setTimeout(() => {
+                confettiPiece.style.transition = 'transform 2s ease-in, opacity 2s ease-in';
+                confettiPiece.style.transform = `translateY(${window.innerHeight}px) rotate(${Math.random() * 360}deg)`;
+                confettiPiece.style.opacity = 0;
+
+                // Remove the confetti piece after animation
+                setTimeout(() => {
+                    confettiPiece.remove();
+                }, 2000);
+            }, 10);
+        }
+    </script>
+</body>
+
+</html>
