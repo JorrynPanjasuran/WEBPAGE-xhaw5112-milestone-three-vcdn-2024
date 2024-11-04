@@ -11,11 +11,13 @@
 
 <body>
 
+    <!-- Scroll Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
     <!-- Navbar -->
     <nav class="navbar">
-        <div class="navbar-logo">
-            <img src="_images/logo.png" alt="Empowering the Nation Logo" class="logo">
-        </div>
         <ul class="navbar-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="six_week_courses.html">Six Week Courses</a></li>
@@ -47,46 +49,44 @@
             and gardeners, making them more marketable and helping them earn higher wages or become entrepreneurs.</p>
 
         <!-- Courses Grid -->
+        <!-- Updated button elements in course cards -->
         <div class="product-grid">
             <div class="product-card">
                 <img src="_images/landscaping.avif" alt="Landscaping Course">
                 <h3>Landscaping Course</h3>
                 <p>Explore the principles of landscape design, including plant selection and hardscaping, to create
                     stunning outdoor environments.</p>
-                <a href="landscaping.html"><button>Learn More</button></a>
+                <a href="landscaping.html"><button class="rainbow-button">Learn More</button></a>
             </div>
-
             <div class="product-card">
                 <img src="_images/lifeskills.avif" alt="Life Skills Course">
                 <h3>Life Skills Course</h3>
                 <p>Develop critical life skills such as financial management, communication, and problem-solving to
                     navigate everyday challenges.</p>
-                <a href="lifeskills.html"><button>Learn More</button></a>
+                <a href="lifeskills.html"><button class="rainbow-button">Learn More</button></a>
             </div>
-
             <div class="product-card">
                 <img src="_images/sewing.avif" alt="Sewing Course">
                 <h3>Sewing Course</h3>
                 <p>From basic stitches to garment construction, this course covers machine sewing, alterations, and
                     custom clothing design.</p>
-                <a href="sewing.html"><button>Learn More</button></a>
+                <a href="sewing.html"><button class="rainbow-button">Learn More</button></a>
             </div>
-
             <div class="product-card">
                 <img src="_images/firstaidcourse.avif" alt="First Aid Course">
                 <h3>First Aid Course</h3>
                 <p>Learn essential first aid techniques to respond to medical emergencies and provide care in critical
                     situations.</p>
-                <a href="firstaidcourse.html"><button>Learn More</button></a>
+                <a href="firstaidcourse.html"><button class="rainbow-button">Learn More</button></a>
             </div>
         </div>
-    </div>
+        <button class="rainbow-button" onclick="addToCart('Landscaping Course', 250)">Add to Cart</button>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Empowering the Nation. All rights reserved.</p>
-        <p>"Empowering individuals through skill development and training" (Empowering the Nation, 2024).</p>
-    </footer>
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2024 Empowering the Nation. All rights reserved.</p>
+            <p>"Empowering individuals through skill development and training" (Empowering the Nation, 2024).</p>
+        </footer>
 
 </body>
 
