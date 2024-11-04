@@ -32,10 +32,14 @@
 /* CSS for each individual star sparkle */
 .sparkle {
     position: absolute;
-    width: 10px; /* Increased size for stars */
-    height: 10px; /* Increased size for stars */
-    background-color: gold; /* Default sparkle color */
-    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); /* Star shape */
+    width: 10px;
+    /* Increased size for stars */
+    height: 10px;
+    /* Increased size for stars */
+    background-color: gold;
+    /* Default sparkle color */
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    /* Star shape */
     animation: sparkle 1s linear infinite;
 }
 
@@ -45,10 +49,12 @@
         transform: scale(0.5);
         opacity: 1;
     }
+
     50% {
         transform: scale(1.5);
         opacity: 0.5;
     }
+
     100% {
         transform: scale(0);
         opacity: 0;
@@ -81,28 +87,37 @@
     padding: 15px 30px;
     font-size: 18px;
     color: #fff;
-    background-color: #bb00ff; /* Button color */
+    background-color: #bb00ff;
+    /* Button color */
     border: none;
     border-radius: 8px;
     cursor: pointer;
     outline: none;
     position: relative;
     z-index: 1;
-    overflow: hidden; /* Ensure content inside the button doesn't overflow */
-    transition: background-color 0.3s; /* Smooth transition */
+    overflow: hidden;
+    /* Ensure content inside the button doesn't overflow */
+    transition: background-color 0.3s;
+    /* Smooth transition */
 }
 
 #popcornButton:hover {
-    background-color: #9900cc; /* Darker shade on hover */
+    background-color: #9900cc;
+    /* Darker shade on hover */
 }
 
 /* Confetti Styles */
 .confetti-spark {
-    position: fixed; /* Keep particles on screen */
-    border-radius: 50%; /* Keep particles circular */
-    pointer-events: none; /* Allow clicks to pass through */
-    z-index: 99999999; /* Ensure particles are on top */
-    will-change: transform, opacity; /* Optimize animations */
+    position: fixed;
+    /* Keep particles on screen */
+    border-radius: 50%;
+    /* Keep particles circular */
+    pointer-events: none;
+    /* Allow clicks to pass through */
+    z-index: 99999999;
+    /* Ensure particles are on top */
+    will-change: transform, opacity;
+    /* Optimize animations */
 }
 
 
@@ -364,7 +379,7 @@ h1 {
     align-items: center;
     padding: 15px 30px;
     /* Add more padding for a rounded look */
-    border-radius: 20px;
+    border-radius: 30px;
     /* Rounded corners for floating effect */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     /* Slightly stronger shadow for floating effect */
@@ -465,6 +480,7 @@ h1 {
     margin: 20px auto;
     max-width: 1100px;
     background-color: white;
+    border-radius: 60px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
