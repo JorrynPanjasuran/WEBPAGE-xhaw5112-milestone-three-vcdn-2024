@@ -5,16 +5,78 @@
 /* VERSION: N/A */
 /* AVAILABLE: Live Lecture */
 
+/* Grid Layout for Main Content */
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Two columns layout */
+    gap: 20px;
+    /* Adjusted for closer alignment */
+    padding: 20px;
+    max-width: 1200px;
+    /* Center align by restricting width */
+    margin: 0 auto;
+    /* Centers the grid on the page */
+}
 
+/* Content Block Styling */
+.content {
+    padding: 10px;
+}
 
+/* Ensuring consistent alignment for text blocks */
+.text {
+    text-align: left;
+}
 
+/* Image Styling for Consistency */
+.image img {
+    width: 100%;
+    height: auto;
+    max-width: 500px;
+    /* Restrict width to keep alignment */
+    margin: 0 auto;
+}
 
+/* YouTube iFrame Video Container */
+.video-container {
+    display: flex;
+    gap: 15px;
+    /* Space between videos */
+    justify-content: center;
+    /* Centers the videos */
+}
 
+.video-container iframe {
+    width: 100%;
+    /* Ensures responsiveness */
+    max-width: 560px;
+    /* Restricts width to keep consistent */
+    height: 315px;
+    /* Standard YouTube aspect ratio */
+}
 
+/* Reviews Section */
+.review-card {
+    max-width: 200px;
+    /* Width of each review card */
+    text-align: center;
+    padding: 15px;
+    margin: 0 auto;
+    /* Centers each card */
+}
 
+.marquee-content {
+    display: flex;
+    gap: 10px;
+    /* Adjust space between review cards */
+}
 
-
-
+/* Adjust Gap for Grid Layout */
+.container .content {
+    margin-bottom: 15px;
+    /* Adjusts vertical spacing between blocks */
+}
 
 
 /* CSS for the sparkling text effect */
@@ -180,7 +242,7 @@
     margin: 0 10px;
     padding: 15px;
     background-color: #f4f4f4;
-    border-radius: 8px;
+    border-radius: 9px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     overflow: hidden;

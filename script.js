@@ -239,3 +239,20 @@ function getRandomColor() {
 }
 
 setInterval(createSparkle, 50); // Create a new sparkle every 50ms
+
+//add to cart
+
+function addToCart(event, courseName, price) {
+    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+    cartItems.push({ title: courseName, fees: price });
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+    console.log(`${courseName} added to cart for R${price}`);
+
+    // Trigger confetti effect (keep as is)
+    const fireworkCount = 200;
+    for (let i = 0; i < fireworkCount; i++) {
+        createConfettiExplosion();
+    }
+}
