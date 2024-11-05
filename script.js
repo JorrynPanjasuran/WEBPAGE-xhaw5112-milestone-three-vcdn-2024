@@ -174,24 +174,6 @@ function createConfettiExplosion(x, y) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // JavaScript for cart functionality
 let cart = []; // Array to hold cart items
 
