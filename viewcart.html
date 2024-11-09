@@ -1,3 +1,47 @@
+<!-- CODE ATTRIBUTION -->
+<!-- TITLE: TastyBites Website -->
+<!-- AUTHOR: Rochelle Moodley -->
+<!-- DATE: 23 July 2024 to 1 September 2024 -->
+<!-- VERSION: N/A -->
+<!-- AVAILABLE: Live Lecture -->
+
+
+<!--CODE ATTRIBUTION-->
+<!--TITLE: IIE Module Manual 2024-->
+<!--AUTHOR: The Independent Institute of Education (Pty) Ltd-->
+<!--DATE: 09/02/2023-->
+<!--VERSION: First Edition: 2012-->
+<!--AVAILABLE: https://advtechonline.sharepoint.com/sites/TertiaryStudents/IIE%20Student%20Materials/Forms/Default%20View.aspx?id=%2Fsites%2FTertiaryStudents%2FIIE%20Student%20Materials%2FNew%20Student%20Materials%20CAT%2FWEDE5020%2F2024%2FWEDE5020MM%20%2D%20REVISED%209%20Feb%202023%2Epdf&viewid=db15e059%2D4f93%2D487f%2Dabda%2De538b821c7b8&parent=%2Fsites%2FTertiaryStudents%2FIIE%20Student%20Materials%2FNew%20Student%20Materials%20CAT%2FWEDE5020%2F2024-->
+
+<!-- CODE ATTRIBUTION -->
+<!-- TITLE: XHAW5112/d/p/w WORK INTEGRATED LEARNING 1 MODULE MANUAL -->
+<!-- AUTHOR: The Independent Institute of Education (Pty) Ltd -->
+<!--DATE: 09/02/2023-->
+<!-- VERSION: 2024 Edition -->
+<!-- AVAILABLE: https://advtechonline.sharepoint.com/sites/TertiaryStudents/IIE%20Student%20Materials/Forms/Default%20View.aspx?id=%2Fsites%2FTertiaryStudents%2FIIE%20Student%20Materials%2FNew%20Student%20Materials%20CAT%2FWEDE5020%2F2024%2FWEDE5020MM%20%2D%20REVISED%209%20Feb%202023%2Epdf&viewid=db15e059%2D4f93%2D487f%2Dabda%2De538b821c7b8&parent=%2Fsites%2FTertiaryStudents%2FIIE%20Student%20Materials%2FNew%20Student%20Materials%20CAT%2FWEDE5020%2F2024-->
+
+<!-- CODE ATTRIBUTION -->
+<!-- TITLE: Principles of UI and UX Design - PIXD5112d/p/w MODULE OUTLINE -->
+<!-- AUTHOR: The Independent Institute of Education (Pty) Ltd -->
+<!--DATE: 09/02/2023-->
+<!-- VERSION: 2024 Edition (First published in 2022) -->
+<!-- AVAILABLE: N/A -->
+
+<!-- CODE ATTRIBUTION -->
+<!-- TITLE: WEB DEVELOPMENT - WEDE5020/d/p/w MODULE MANUAL/GUIDE -->
+<!-- AUTHOR: The Independent Institute of Education (Pty) Ltd -->
+<!--DATE: 09/02/2023-->
+<!-- VERSION: 2024 Edition (First published in 2012) -->
+<!-- AVAILABLE: N/A -->
+
+<!-- CODE ATTRIBUTION -->
+<!-- TITLE: HTML Tutorial -->
+<!-- AUTHOR: W3Schools -->
+<!--DATE: 09/02/2023-->
+<!-- VERSION: N/A -->
+<!-- AVAILABLE: https://www.w3schools.com/html/ [Accessed 8 Nov. 2024] -->
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -174,12 +218,41 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
+
+
         .video-container {
             display: flex;
             justify-content: space-between;
             gap: 20px;
             flex-wrap: wrap;
             margin: 20px 0;
+        }
+
+        /* Checkout Button Styling */
+        .button#checkout-btn {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #fff;
+            background: linear-gradient(to right, #28a745, #218838);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+        }
+
+        /* Hover Effect */
+        .button#checkout-btn:hover {
+            background: linear-gradient(to right, #218838, #1e7e34);
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Active Effect */
+        .button#checkout-btn:active {
+            transform: scale(0.98);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
         }
 
         .video-container iframe {
@@ -206,6 +279,67 @@
             /* Adjust the shadow properties as needed */
             font-size: 3em;
             /* Set font size */
+            font-family: 'Didot', serif;
+        }
+
+        /* Customer Form */
+        #customer-form {
+            max-width: 500px;
+            margin: 0 auto 20px;
+            padding: 20px;
+            background-color: #f7f7f7;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        #customer-form h2 {
+            color: var(--primary-color);
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        #customer-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: var(--text-color);
+        }
+
+        #customer-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .error-message {
+            color: #d9534f;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+            display: none;
+        }
+
+        /* Button Styles */
+        .button#checkout-btn {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #fff;
+            background: linear-gradient(to right, #81D8D0, #f0286e);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+        }
+
+        .button#checkout-btn:hover {
+            background: linear-gradient(to right, #f0286e, #81D8D0);
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
     </style>
 </head>
@@ -213,36 +347,51 @@
 <body style="margin: 0; font-family: Arial, sans-serif; color: #333; background-color: #f8f9fa;">
     <!-- Scroll Progress Bar -->
     <div class="progress-container" style="position: fixed; top: 0; width: 100%; background-color: #ddd;">
-        <div class="progress-bar" id="progressBar" style="height: 5px; background-color: #28a745;"></div>
+        <div class="progress-bar" id="progressBar" style="height: 5px; background-color: #81D8D0;"></div>
     </div>
 
     <!-- Video Background Section -->
     <div class="video-background">
-        <video autoplay muted loop playsinline class="background-video" preload="auto">
+        <vido autoplay muted loop playsinline class="background-video" preload="auto">
             <source src="_video/videoe.mp4" type="video/mp4">
             Your browser does not support the video tag.
-        </video>
+            </video>
 
-        <!-- Navbar (Positioned behind the video) -->
-        <nav class="navbar">
-            <ul class="navbar-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="six_week_courses.html">Six Week Courses</a></li>
-                <li><a href="six_month_courses.html">Six Month Courses</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="addtocart.html">Add to Cart</a></li>
-                <li><a href="viewcart.html" class="active">View Cart</a></li>
-            </ul>
-        </nav>
+            <!-- Navbar (Positioned behind the video) -->
+            <nav class="navbar">
+                <ul class="navbar-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="six_week_courses.html">Six Week Courses</a></li>
+                    <li><a href="six_month_courses.html">Six Month Courses</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="addtocart.html">Add to Cart</a></li>
+                    <li><a href="viewcart.html" class="active">View Cart</a></li>
+                </ul>
+            </nav>
 
-        <!-- Overlay Text -->
-        <div class="video-overlay">
-            <header>
-                <h1 class="orbiting-title">
-                    Your Cart</h1>
-            </header>
-        </div>
+            <!-- Overlay Text -->
+            <div class="video-overlay">
+                <header>
+                    <h1>Your Cart</h1>
+                </header>
+            </div>
+    </div>
+
+    <!-- Customer Form -->
+    <div id="customer-form">
+        <h2>Customer Details</h2>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <div class="error-message" id="name-error">Please enter your name.</div>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required>
+        <div class="error-message" id="phone-error">Please enter a valid phone number.</div>
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required>
+        <div class="error-message" id="email-error">Please enter a valid email address.</div>
     </div>
 
     <!-- Main Content Below the Video Background -->
@@ -254,13 +403,12 @@
         <div id="total-price-container" style="text-align: right;">
             <p><strong>Total:</strong> R <span id="total-price">0</span></p>
             <p><strong>Discount:</strong> <span id="discount-percentage">0</span>%</p>
+            <p><strong>Discount in R:</strong> R <span id="discount-amount">0</span></p>
+            <p><strong>VAT (15%):</strong> R <span id="vat-amount">0</span></p>
             <p><strong>Total after Discount:</strong> R <span id="discounted-price">0</span></p>
         </div>
         <div style="text-align: center; margin-top: 20px;">
-            <button class="button checkout-btn" id="checkout-btn"
-                style="padding: 10px 20px; font-size: 1em; color: #fff; background-color: #28a745; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s;">
-                Checkout
-            </button>
+            <button class="button" id="checkout-btn">Checkout</button>
         </div>
     </div>
 
@@ -287,7 +435,9 @@
             const cartItemsContainer = document.getElementById('cart-items-container');
             const totalPriceElement = document.getElementById('total-price');
             const discountPercentageElement = document.getElementById('discount-percentage');
+            const discountAmountElement = document.getElementById('discount-amount');
             const discountedPriceElement = document.getElementById('discounted-price');
+            const vatAmountElement = document.getElementById('vat-amount');
 
             cartItemsContainer.innerHTML = '';
             let totalPrice = 0;
@@ -299,27 +449,29 @@
             cartItems.forEach((item, index) => {
                 const itemDiv = document.createElement('div');
                 itemDiv.classList.add('cart-item');
-                itemDiv.style = "display: flex; justify-content: space-between; align-items: center; padding: 10px; border-bottom: 1px solid #ddd;";
-
                 itemDiv.innerHTML = `
-                    <div class="cart-item-info">
-                        <p><strong>${item.title}</strong></p>
-                        <p>R ${item.fees}</p>
-                    </div>
-                    <button class="button remove-btn" onclick="removeFromCart(${index})" style="padding: 5px 10px; font-size: 0.9em; color: #fff; background-color: #dc3545; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s;">
-                        Remove
-                    </button>
-                `;
+                <div class="cart-item-info">
+                    <p><strong>${item.title}</strong></p>
+                    <p>R ${item.fees}</p>
+                </div>
+                <button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>
+            `;
                 cartItemsContainer.appendChild(itemDiv);
                 totalPrice += parseFloat(item.fees);
             });
 
-            const discount = calculateDiscount(cartItems);
-            const discountedPrice = totalPrice * (1 - discount / 100);
+            const discountPercentage = calculateDiscount(cartItems);
+            const discountAmount = totalPrice * (discountPercentage / 100);
+            const discountedPrice = totalPrice - discountAmount;
 
+            const vatAmount = totalPrice - (totalPrice / 1.15);
+
+            // Update UI elements
             totalPriceElement.textContent = totalPrice.toFixed(2);
-            discountPercentageElement.textContent = discount;
+            discountPercentageElement.textContent = discountPercentage;
+            discountAmountElement.textContent = discountAmount.toFixed(2);
             discountedPriceElement.textContent = discountedPrice.toFixed(2);
+            vatAmountElement.textContent = vatAmount.toFixed(2);
         }
 
         // Remove item from cart
@@ -330,14 +482,44 @@
             loadCart();
         }
 
+        // Form Validation and Checkout
         document.getElementById('checkout-btn').addEventListener('click', () => {
-            localStorage.removeItem('cartItems');
-            alert('Thank you for your purchase!');
-            loadCart();
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const email = document.getElementById('email').value.trim();
+            let valid = true;
+
+            if (!name) {
+                document.getElementById('name-error').style.display = 'block';
+                valid = false;
+            } else {
+                document.getElementById('name-error').style.display = 'none';
+            }
+
+            if (!phone) {
+                document.getElementById('phone-error').style.display = 'block';
+                valid = false;
+            } else {
+                document.getElementById('phone-error').style.display = 'none';
+            }
+
+            if (!email || !email.includes('@')) {
+                document.getElementById('email-error').style.display = 'block';
+                valid = false;
+            } else {
+                document.getElementById('email-error').style.display = 'none';
+            }
+
+            if (valid) {
+                alert('Thank you for your purchase!');
+                localStorage.removeItem('cartItems');
+                loadCart();
+            }
         });
 
         loadCart();
     </script>
+</body>
 </body>
 
 </html>
