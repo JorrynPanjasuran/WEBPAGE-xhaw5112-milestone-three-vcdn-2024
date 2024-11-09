@@ -5,89 +5,309 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Cart</title>
-    <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
+    <style>
+        /* Video Background */
+        .video-background {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .background-video {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+
+        .navbar {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1200px;
+            background: linear-gradient(to right, #f0286e, #81D8D0);
+            display: flex;
+            align-items: center;
+            padding: 15px 30px;
+            border-radius: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+        }
+
+        /* Style for the Remove Button */
+        .remove-btn {
+            background-color: #f0286e;
+            /* Set primary color */
+            color: #fff;
+            /* White text for contrast */
+            border: none;
+            padding: 5px 10px;
+            font-size: 0.9em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            /* Smooth transition */
+        }
+
+        .remove-btn:hover {
+            background-color: #e0215b;
+            /* Slightly darker shade for hover effect */
+            transform: scale(1.05);
+            /* Scale effect on hover */
+        }
+
+        .navbar-logo {
+            margin-right: auto;
+        }
+
+        .navbar-logo img {
+            height: 60px;
+            width: auto;
+            border-radius: 50%;
+        }
+
+        .navbar-links {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .navbar-links li {
+            margin: 0 15px;
+        }
+
+        .navbar-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .navbar-links a:hover {
+            color: #81D8D0;
+            transform: scale(1.1);
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .navbar-links a.active {
+            color: #81D8D0;
+        }
+
+        .navbar-links a::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: #81D8D0;
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-links a:hover::after,
+        .navbar-links a.active::after {
+            transform: scaleX(1);
+        }
+
+        .content {
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 1100px;
+            background-color: white;
+            border-radius: 60px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .video-container iframe {
+            width: 48%;
+            height: 250px;
+            border-radius: 8px;
+        }
+
+        h1 {
+            background: linear-gradient(to right, #f0286e, #81D8D0);
+            /* Gradient colors */
+            -webkit-background-clip: text;
+            /* Clip the background to the text */
+            -webkit-text-fill-color: transparent;
+            /* Fill the text with the background */
+            background-clip: text;
+            /* Ensure background is clipped */
+            color: transparent;
+            /* Set color to transparent for older browsers */
+            text-align: center;
+            /* Center text */
+            margin: 0;
+            text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.057);
+            /* Adjust the shadow properties as needed */
+            font-size: 3em;
+            /* Set font size */
+        }
+    </style>
 </head>
 
-<body>
-    <!-- Navbar and Video Background (same as before) -->
+<body style="margin: 0; font-family: Arial, sans-serif; color: #333; background-color: #f8f9fa;">
+    <!-- Scroll Progress Bar -->
+    <div class="progress-container" style="position: fixed; top: 0; width: 100%; background-color: #ddd;">
+        <div class="progress-bar" id="progressBar" style="height: 5px; background-color: #28a745;"></div>
+    </div>
 
-    <div class="container">
-        <h2 class="page-title">View Cart</h2>
+    <!-- Video Background Section -->
+    <div class="video-background">
+        <video autoplay muted loop playsinline class="background-video" preload="auto">
+            <source src="_video/videoe.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
 
-        <!-- Cart Content -->
-        <div id="cartContainer" class="cart-container">
-            <!-- Cart items will be dynamically generated here -->
+        <!-- Navbar (Positioned behind the video) -->
+        <nav class="navbar">
+            <ul class="navbar-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="six_week_courses.html">Six Week Courses</a></li>
+                <li><a href="six_month_courses.html">Six Month Courses</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="addtocart.html">Add to Cart</a></li>
+                <li><a href="viewcart.html" class="active">View Cart</a></li>
+            </ul>
+        </nav>
+
+        <!-- Overlay Text -->
+        <div class="video-overlay">
+            <header>
+                <h1 class="orbiting-title">
+                    Your Cart</h1>
+            </header>
         </div>
+    </div>
 
-        <!-- Total Summary -->
-        <div class="summary-container">
-            <p class="summary-text">Total (before discount): R<span id="totalWithoutDiscount">0.00</span></p>
-            <p id="discountAmount" class="summary-text" style="display: none;">Discount: -R<span
-                    id="discountValue">0.00</span></p>
-            <p class="summary-text">Total (after discount): R<span id="totalWithDiscount">0.00</span></p>
+    <!-- Main Content Below the Video Background -->
+    <div class="content">
+        <h2>Items in Your Cart</h2>
+        <div id="cart-items-container" style="margin: 20px 0;">
+            <!-- Cart items will be dynamically added here -->
         </div>
-
-        <!-- Checkout Button -->
-        <button onclick="checkout()" class="checkout-button">Proceed to Checkout</button>
+        <div id="total-price-container" style="text-align: right;">
+            <p><strong>Total:</strong> R <span id="total-price">0</span></p>
+            <p><strong>Discount:</strong> <span id="discount-percentage">0</span>%</p>
+            <p><strong>Total after Discount:</strong> R <span id="discounted-price">0</span></p>
+        </div>
+        <div style="text-align: center; margin-top: 20px;">
+            <button class="button checkout-btn" id="checkout-btn"
+                style="padding: 10px 20px; font-size: 1em; color: #fff; background-color: #28a745; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s;">
+                Checkout
+            </button>
+        </div>
     </div>
 
     <script>
-        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        // Calculate discount based on the number of courses
+        function calculateDiscount(cartItems) {
+            const itemCount = cartItems.length;
+            let discount = 0;
 
-        function calculateTotal() {
-            let totalWithoutDiscount = cartItems.reduce((total, item) => total + item.fees, 0);
-            let discountRate = 0;
+            if (itemCount === 2) {
+                discount = 5;
+            } else if (itemCount === 3) {
+                discount = 10;
+            } else if (itemCount > 3) {
+                discount = 15;
+            }
 
-            if (cartItems.length === 2) discountRate = 0.05;
-            else if (cartItems.length === 3) discountRate = 0.10;
-            else if (cartItems.length > 3) discountRate = 0.15;
-
-            let discountAmount = totalWithoutDiscount * discountRate;
-            let totalWithDiscount = totalWithoutDiscount - discountAmount;
-
-            return { totalWithoutDiscount, discountAmount, totalWithDiscount };
+            return discount;
         }
 
-        function displayCart() {
-            const cartContainer = document.getElementById("cartContainer");
-            cartContainer.innerHTML = '';
+        // Load cart items from localStorage and display them
+        function loadCart() {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const cartItemsContainer = document.getElementById('cart-items-container');
+            const totalPriceElement = document.getElementById('total-price');
+            const discountPercentageElement = document.getElementById('discount-percentage');
+            const discountedPriceElement = document.getElementById('discounted-price');
+
+            cartItemsContainer.innerHTML = '';
+            let totalPrice = 0;
+
+            if (cartItems.length === 0) {
+                cartItemsContainer.innerHTML = '<p style="text-align: center; font-size: 1.2em; color: #666;">Your cart is empty</p>';
+            }
 
             cartItems.forEach((item, index) => {
-                let cartItem = document.createElement("div");
-                cartItem.className = "cart-item";
-                cartItem.innerHTML = `
-                    <p class="item-description">${item.title} - R${item.fees.toFixed(2)}</p>
-                    <button onclick="removeItem(${index})" class="remove-button">Remove</button>
+                const itemDiv = document.createElement('div');
+                itemDiv.classList.add('cart-item');
+                itemDiv.style = "display: flex; justify-content: space-between; align-items: center; padding: 10px; border-bottom: 1px solid #ddd;";
+
+                itemDiv.innerHTML = `
+                    <div class="cart-item-info">
+                        <p><strong>${item.title}</strong></p>
+                        <p>R ${item.fees}</p>
+                    </div>
+                    <button class="button remove-btn" onclick="removeFromCart(${index})" style="padding: 5px 10px; font-size: 0.9em; color: #fff; background-color: #dc3545; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s;">
+                        Remove
+                    </button>
                 `;
-                cartContainer.appendChild(cartItem);
+                cartItemsContainer.appendChild(itemDiv);
+                totalPrice += parseFloat(item.fees);
             });
 
-            const { totalWithoutDiscount, discountAmount, totalWithDiscount } = calculateTotal();
-            document.getElementById("totalWithoutDiscount").textContent = totalWithoutDiscount.toFixed(2);
-            document.getElementById("totalWithDiscount").textContent = totalWithDiscount.toFixed(2);
+            const discount = calculateDiscount(cartItems);
+            const discountedPrice = totalPrice * (1 - discount / 100);
 
-            const discountElement = document.getElementById("discountAmount");
-            if (discountAmount > 0) {
-                discountElement.style.display = "block";
-                document.getElementById("discountValue").textContent = discountAmount.toFixed(2);
-            } else {
-                discountElement.style.display = "none";
-            }
+            totalPriceElement.textContent = totalPrice.toFixed(2);
+            discountPercentageElement.textContent = discount;
+            discountedPriceElement.textContent = discountedPrice.toFixed(2);
         }
 
-        function removeItem(index) {
+        // Remove item from cart
+        function removeFromCart(index) {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
             cartItems.splice(index, 1);
-            localStorage.setItem("cartItems", JSON.stringify(cartItems));
-            displayCart();
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            loadCart();
         }
 
-        function checkout() {
-            const { totalWithDiscount } = calculateTotal();
-            alert(`Thank you for your purchase! Your total order of R${totalWithDiscount.toFixed(2)} will be processed shortly.`);
-        }
+        document.getElementById('checkout-btn').addEventListener('click', () => {
+            localStorage.removeItem('cartItems');
+            alert('Thank you for your purchase!');
+            loadCart();
+        });
 
-        document.addEventListener("DOMContentLoaded", displayCart);
+        loadCart();
     </script>
 </body>
 

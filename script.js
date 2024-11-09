@@ -256,3 +256,138 @@ function addToCart(event, courseName, price) {
         createConfettiExplosion();
     }
 }
+
+
+function addToCart(event, courseName, price) {
+    // Retrieve existing cart items or initialize an empty array
+    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+    // Add new item to the cart array
+    cartItems.push({ title: courseName, fees: price });
+
+    // Save updated cart back to localStorage
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+    console.log(`${courseName} added to cart for R${price}`);
+
+    // Trigger confetti effect (keep as is)
+    const fireworkCount = 200;
+    for (let i = 0; i < fireworkCount; i++) {
+        createConfettiExplosion();
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Ensure the button exists before adding the event listener
+    const button = document.getElementById('popcornButton');
+
+    if (button) {
+        button.addEventListener('click', (event) => {
+            const fireworkCount = 100; // Increase particle count for more coverage
+
+            for (let i = 0; i < fireworkCount; i++) {
+                createConfettiExplosion(event.clientX, event.clientY);
+            }
+        });
+    }
+
+    function createConfettiExplosion(x, y) {
+        const confettiPiece = document.createElement('div');
+        confettiPiece.classList.add('confetti-spark');
+
+        // Randomize particle size for variety
+        const size = Math.random() * 20 + 10 + 'px'; // Size range adjusted
+        confettiPiece.style.width = size;
+        confettiPiece.style.height = size;
+        confettiPiece.style.backgroundColor = `hsl(${Math.random() * 360}, 90%, 60%)`; // Added backticks
+
+        // Position particle at the click location
+        confettiPiece.style.left = `${x}px`; // Added backticks
+        confettiPiece.style.top = `${y}px`; // Added backticks
+
+        document.body.appendChild(confettiPiece);
+
+        // Animate particle to cover more screen area
+        const animation = confettiPiece.animate([
+            {
+                transform: `translate(${Math.random() * 600 - 300}px, ${Math.random() * -200}px) rotate(${Math.random() * 720}deg) scale(1)`,
+                opacity: 1,
+            },
+            {
+                transform: `translate(${Math.random() * 800 - 400}px, ${Math.random() * 400 + 200}px) rotate(${Math.random() * 720}deg) scale(0.5)`,
+                opacity: 0,
+            }
+        ], {
+            duration: 2000 + Math.random() * 500, // Randomize duration
+            easing: 'cubic-bezier(0.36, 0.11, 0.89, 0.32)', // Dramatic easing
+        });
+
+        // Remove particle after animation ends
+        animation.onfinish = () => confettiPiece.remove();
+    }
+});
+
+
+
+function addToCart(courseName, price) {
+    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    cartItems.push({ title: courseName, fees: price });
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    alert(`${courseName} added to cart!`);
+
+    console.log("Cart Items:", cartItems); // Add this to debug and check the items in localStorage
+
+    // Trigger confetti effect
+    const fireworkCount = 200;
+    for (let i = 0; i < fireworkCount; i++) {
+        createConfettiExplosion();
+    }
+}
+
+
+function displayCart() {
+    const cartContainer = document.getElementById("cartContainer");
+    cartContainer.innerHTML = ''; // Clear previous content
+
+    if (cartItems.length === 0) {
+        cartContainer.innerHTML = '<p>Your cart is empty.</p>';
+        return;
+    }
+
+    cartItems.forEach((item, index) => {
+        let cartItem = document.createElement("div");
+        cartItem.className = "cart-item";
+        cartItem.innerHTML = `
+            <p class="item-description">${item.title} - R${item.fees.toFixed(2)}</p>
+            <button onclick="removeItem(${index})" class="remove-button">Remove</button>
+        `;
+        cartContainer.appendChild(cartItem);
+    });
+
+    // Update totals
+    const { totalWithoutDiscount, discountAmount, totalWithDiscount } = calculateTotal();
+    document.getElementById("totalWithoutDiscount").textContent = totalWithoutDiscount.toFixed(2);
+    document.getElementById("totalWithDiscount").textContent = totalWithDiscount.toFixed(2);
+
+    const discountElement = document.getElementById("discountAmount");
+    if (discountAmount > 0) {
+        discountElement.style.display = "block";
+        document.getElementById("discountValue").textContent = discountAmount.toFixed(2);
+    } else {
+        discountElement.style.display = "none";
+    }
+}
+

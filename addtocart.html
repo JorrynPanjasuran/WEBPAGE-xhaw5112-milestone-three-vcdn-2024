@@ -10,7 +10,6 @@
 </head>
 
 <body>
-
     <!-- Scroll Progress Bar -->
     <div class="progress-container">
         <div class="progress-bar" id="progressBar"></div>
@@ -47,13 +46,13 @@
         <h2 class="page-title">Add to Cart!</h2>
         <div id="courses">
             <div class="product-grid">
-                <!-- Landscaping Course -->
+                <!-- Example course items -->
                 <div class="product-card" id="landscaping">
                     <img src="https://i.pinimg.com/736x/ac/36/f1/ac36f1a7e689641c9137c2666381a36a.jpg"
                         alt="Landscaping Course" class="course-image">
                     <h3 class="course-title">Landscaping Course</h3>
                     <p>R 1500</p>
-                    <button class="button add-to-cart-btn" onclick="addToCart(event, 'Landscaping Course', 1500)">Add to
+                    <button class="button add-to-cart-btn" onclick="addToCart('Landscaping Course', 1500)">Add to
                         Cart</button>
                 </div>
 
@@ -63,7 +62,7 @@
                         alt="Life Skills Course" class="course-image">
                     <h3 class="course-title">Life Skills Course</h3>
                     <p>R 1500</p>
-                    <button class="button add-to-cart-btn" onclick="addToCart(event, 'Life Skills Course', 1500)">Add to
+                    <button class="button add-to-cart-btn" onclick="addToCart('Life Skills Course', 1500)">Add to
                         Cart</button>
                 </div>
 
@@ -73,7 +72,7 @@
                         alt="Sewing Course" class="course-image">
                     <h3 class="course-title">Sewing Course</h3>
                     <p>R 1500</p>
-                    <button class="button add-to-cart-btn" onclick="addToCart(event, 'Sewing Course', 1500)">Add to
+                    <button class="button add-to-cart-btn" onclick="addToCart('Sewing Course', 1500)">Add to
                         Cart</button>
                 </div>
 
@@ -83,7 +82,7 @@
                         alt="First Aid Course" class="course-image">
                     <h3 class="course-title">First Aid Course</h3>
                     <p>R 800</p>
-                    <button class="button add-to-cart-btn" onclick="addToCart(event, 'First Aid Course', 800)">Add to
+                    <button class="button add-to-cart-btn" onclick="addToCart('First Aid Course', 800)">Add to
                         Cart</button>
                 </div>
 
@@ -93,7 +92,7 @@
                         alt="Cooking Skills Course" class="course-image">
                     <h3 class="course-title">Cooking Skills Course</h3>
                     <p>R 1200</p>
-                    <button class="button add-to-cart-btn" onclick="addToCart(event, 'Cooking Skills Course', 1200)">Add
+                    <button class="button add-to-cart-btn" onclick="addToCart('Cooking Skills Course', 1200)">Add
                         to Cart</button>
                 </div>
 
@@ -103,7 +102,7 @@
                         alt="Child Minding Course" class="course-image">
                     <h3 class="course-title">Child Minding Course</h3>
                     <p>R 1400</p>
-                    <button class="button add-to-cart-btn" onclick="addToCart(event, 'Child Minding Course', 1400)">Add
+                    <button class="button add-to-cart-btn" onclick="addToCart('Child Minding Course', 1400)">Add
                         to Cart</button>
                 </div>
 
@@ -113,8 +112,8 @@
                         alt="Garden Maintenance Course" class="course-image">
                     <h3 class="course-title">Garden Maintenance</h3>
                     <p>R 1300</p>
-                    <button class="button add-to-cart-btn"
-                        onclick="addToCart(event, 'Garden Maintenance Course', 1300)">Add to Cart</button>
+                    <button class="button add-to-cart-btn" onclick="addToCart('Garden Maintenance Course', 1300)">Add to
+                        Cart</button>
                 </div>
 
                 <!-- Additional courses can be added here -->
@@ -123,14 +122,14 @@
     </div>
 
     <script>
-        // Function to add items to cart and trigger confetti
-        function addToCart(event, courseName, price) {
-            // Logic to add the item to cart (e.g., update cart array, localStorage, etc.)
-            console.log(`${courseName} added to cart for R${price}`);
+        function addToCart(courseName, price) {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            cartItems.push({ title: courseName, fees: price });
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            alert(`${courseName} added to cart!`);
 
             // Trigger confetti effect
-            const fireworkCount = 200; // Increase particle count for more coverage
-
+            const fireworkCount = 200;
             for (let i = 0; i < fireworkCount; i++) {
                 createConfettiExplosion();
             }
@@ -141,7 +140,7 @@
             confettiPiece.classList.add('confetti-spark');
 
             // Randomize particle size for variety
-            const size = Math.random() * 20 + 10 + 'px'; // Size range adjusted
+            const size = Math.random() * 20 + 10 + 'px';
             confettiPiece.style.width = size;
             confettiPiece.style.height = size;
             confettiPiece.style.backgroundColor = `hsl(${Math.random() * 360}, 90%, 60%)`;
@@ -153,22 +152,77 @@
             confettiPiece.style.left = x;
             confettiPiece.style.top = y;
 
-            // Add the confetti piece to the body
             document.body.appendChild(confettiPiece);
 
-            // Animation using CSS classes for falling effect
             setTimeout(() => {
                 confettiPiece.style.transition = 'transform 2s ease-in, opacity 2s ease-in';
                 confettiPiece.style.transform = `translateY(${window.innerHeight}px) rotate(${Math.random() * 360}deg)`;
                 confettiPiece.style.opacity = 0;
-
-                // Remove the confetti piece after animation
-                setTimeout(() => {
-                    confettiPiece.remove();
-                }, 2000);
+                setTimeout(() => confettiPiece.remove(), 2000);
             }, 10);
         }
+
+
+
+        function addToCart(courseName, price) {
+            // Retrieve cart items from localStorage
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+            // Check if the course is already in the cart
+            const itemExists = cartItems.some(item => item.title === courseName);
+
+            if (itemExists) {
+                // Alert if the item is already in the cart
+                alert(`${courseName} is already in your cart!`);
+            } else {
+                // Add the item to the cart if not already present
+                cartItems.push({ title: courseName, fees: price });
+                localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                alert(`${courseName} added to cart!`);
+
+                // Trigger confetti effect
+                const fireworkCount = 200;
+                for (let i = 0; i < fireworkCount; i++) {
+                    createConfettiExplosion();
+                }
+            }
+        }
+
+        function createConfettiExplosion() {
+            const confettiPiece = document.createElement('div');
+            confettiPiece.classList.add('confetti-spark');
+
+            // Randomize particle size for variety
+            const size = Math.random() * 20 + 10 + 'px';
+            confettiPiece.style.width = size;
+            confettiPiece.style.height = size;
+            confettiPiece.style.backgroundColor = `hsl(${Math.random() * 360}, 90%, 60%)`;
+
+            // Set random position within the viewport
+            const x = Math.random() * window.innerWidth + 'px';
+            const y = Math.random() * window.innerHeight + 'px';
+            confettiPiece.style.position = 'absolute';
+            confettiPiece.style.left = x;
+            confettiPiece.style.top = y;
+
+            document.body.appendChild(confettiPiece);
+
+            setTimeout(() => {
+                confettiPiece.style.transition = 'transform 2s ease-in, opacity 2s ease-in';
+                confettiPiece.style.transform = `translateY(${window.innerHeight}px) rotate(${Math.random() * 360}deg)`;
+                confettiPiece.style.opacity = 0;
+                setTimeout(() => confettiPiece.remove(), 2000);
+            }, 10);
+        }
+
+
     </script>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Empowering the Nation. All rights reserved.</p>
+        <p>"Empowering individuals through short-term, impactful training" (Empowering the Nation, 2024).</p>
+    </footer>
 </body>
 
 </html>
