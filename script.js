@@ -391,3 +391,9 @@ function displayCart() {
     }
 }
 
+
+document.querySelector('.menu-toggle').addEventListener('click', function () {
+    document.querySelector('.navbar-links').classList.toggle('active');
+});
+
+

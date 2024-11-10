@@ -1,12 +1,46 @@
+/* Basic Navbar Styles */
+
+/* Hide menu toggle button on larger screens */
+.menu-toggle {
+    display: none;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar-links {
+        display: none;
+        flex-direction: column;
+        gap: 0;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #f8f8f8;
+        padding: 1em 0;
+    }
+
+    .navbar-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+        font-size: 1.5em;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #333;
+    }
+}
+
+
+
 /* CODE ATTRIBUTION */
 /* TITLE: TastyBites Website */
 /* AUTHOR: Rochelle Moodley */
 /* DATE: 23 July 2024 to 1 September 2024 */
 /* VERSION: N/A */
 /* AVAILABLE: Live Lecture */
-
-
-
 
 /* Global Styles */
 * {

@@ -72,6 +72,61 @@
     }
     </script>
 
+    <style>
+        /* Navbar Styles */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1em;
+            background-color: #f8f8f8;
+        }
+
+        .navbar-links {
+            display: flex;
+            list-style: none;
+            gap: 1em;
+        }
+
+        .navbar-links li a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        /* Hide the menu toggle button on larger screens */
+        .menu-toggle {
+            display: none;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .navbar-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                border-radius: 20px;
+                background-color: #f0286e;
+                padding: 1em;
+            }
+
+            .navbar-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+                font-size: 1.5em;
+                background: none;
+                border: none;
+                cursor: pointer;
+                color: #333;
+            }
+        }
+    </style>
+
     <!-- Open Graph Meta Tags for Social Sharing -->
     <meta property="og:title" content="Empowering the Nation | Home">
     <meta property="og:description"
@@ -109,6 +164,7 @@
     <div class="video-background">
         <!-- Navbar (Positioned behind the video) -->
         <nav class="navbar">
+            <button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
             <ul class="navbar-links">
                 <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="six_week_courses.html">Six Week Courses</a></li>
@@ -119,6 +175,7 @@
                 <li><a href="viewcart.html">View Cart</a></li>
             </ul>
         </nav>
+
 
         <!-- Background Video -->
         <video autoplay muted loop playsinline class="background-video" preload="auto">
@@ -264,6 +321,19 @@
         <p>&copy; 2024 Empowering the Nation. All rights reserved.</p>
         <p>Email: info@empoweringthenation.co.za | Phone: +27-123-456-7890</p>
     </footer>
+
+    <script>
+        const cursor = document.querySelector('.cursor');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = `${e.clientX}px`;
+            cursor.style.top = `${e.clientY}px`;
+        });
+
+        document.querySelector('.menu-toggle').addEventListener('click', function () {
+            document.querySelector('.navbar-links').classList.toggle('active');
+        });
+    </script>
 
 </body>
 
